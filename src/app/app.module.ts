@@ -6,11 +6,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { DataGridComponent } from './datagrid.component';
 import { AgGridModule } from 'ag-grid-angular';
+import { OnlyNumberDirective } from './onlyNumberDirective';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DataGridComponent
+    DataGridComponent,
+    OnlyNumberDirective
   ],
   imports: [
     BrowserModule,

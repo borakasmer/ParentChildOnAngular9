@@ -68,7 +68,7 @@
       </tr>
       <tr>
         <th>*Kurs Fiyatı:</th>
-        <td><input type="text" id="Price" name="Price" [(ngModel)]="newCourse.Price" #Price="ngModel" required>
+        <td><input type="text" id="Price" name="Price" [(ngModel)]="newCourse.Price" #Price="ngModel" required numbersOnly>
           <div *ngIf="Price.touched && Price.errors">
             <div class="alert alert-danger" *ngIf="Price.errors.required">Fiyat Alanı Zorunludur!</div>
           </div>
@@ -78,7 +78,7 @@
       <tr>
         <th>*Toplam Süre:</th>
         <td><input type="text" id="TotalHours" name="TotalHours" [(ngModel)]="newCourse.TotalHours"
-            #TotalHours="ngModel" required>
+            #TotalHours="ngModel" required numbersOnly>
           <div *ngIf="TotalHours.touched && TotalHours.errors">
             <div class="alert alert-danger" *ngIf="TotalHours.errors.required">Toplam Süre Alanı Zorunludur!</div>
           </div>
