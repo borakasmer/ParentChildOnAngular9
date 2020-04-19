@@ -1,0 +1,15 @@
+<span id="selectedRows"></span>
+<ag-grid-angular
+    id="myGrid"
+    style="width: 802px; height: 300px;"
+    class="ag-theme-blue"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    enableSorting
+    enableFilter
+    [pagination]="true" [paginationAutoPageSize]="true" 
+    [rowSelection]="selection"
+    (selectionChanged)="onSelectionChanged($event)"
+    (gridReady)="onGridReady($event)"
+    >
+</ag-grid-angular>

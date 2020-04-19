@@ -1,0 +1,12 @@
+@import "../node_modules/ag-grid-community/src/styles/ag-grid.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-alpine/sass/ag-theme-alpine-mixin.scss";
+@import "../node_modules/ag-grid-community/src/styles/ag-theme-blue/sass/ag-theme-blue.scss";
+
+.ag-theme-alpine {
+    @include ag-theme-alpine();
+}
+
+.ag-theme-blue .ag-row-hover{
+
+    background-color: rgb(148, 223, 241);
+}
