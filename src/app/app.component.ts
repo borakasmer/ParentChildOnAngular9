@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Course } from './Models/course';
 import { FormGroup } from '@angular/forms';
 import { ColumnDefs } from './Models/columnDef';
+import { CourseService } from './Services/courseService';
 
 @Component({
   selector: 'app-root',
@@ -11,10 +12,14 @@ import { ColumnDefs } from './Models/columnDef';
 export class AppComponent {
   newCourse: Course = new Course();
   title = 'Kurslar Uygulaması';
-  courseList = [new Course('Angular', 2400, 36, 1), new Course('.Net Core', 4000, 200, 2),
-  new Course('Microservice', 2000, 20, 3), new Course('Azure', 1500, 15, 4)];
+  courseList: Course[];
 
-  columnDefList = [new ColumnDefs("Kurs Adı", "Name"), new ColumnDefs("Kurs Fiyat", "Price"), new ColumnDefs("Kurs Süresi", "TotalHours"), new ColumnDefs("Id", "Id")]
+  columnDefList: ColumnDefs[];
+
+  constructor(private service: CourseService) {
+    this.courseList = service.GetCourseData();
+    this.columnDefList = service.GetColumnDefData();
+  }
   public saveForm(form: FormGroup) {
 
     //INSERT
@@ -40,7 +45,7 @@ export class AppComponent {
         this.courseList.splice(updateCourseIndex, 1);
       }
 
-      console.log("Orginal Course:" + JSON.stringify(this.orgianlcourse));
+      console.log("Orginal Course:" + JSON.stringify(this.orginalcourse));
       this.updateCourseList(form);
     }
 
@@ -58,18 +63,18 @@ export class AppComponent {
     this.courseList = newcourseList;
   }
 
-  orgianlcourse: Course;
+  orginalcourse: Course;
   public getSelectedData(event) {
     this.newCourse = event;
 
-    this.orgianlcourse = { ...this.newCourse };
+    this.orginalcourse = { ...this.newCourse };
     //this.newCourse.ColorList = ["Yellow", "Yellow", "Yellow"];
     //this.newCourse.ColorList.push("Yellow");
   }
 
   public reverseBack() {
-    if (this.orgianlcourse != null) {
-      this.newCourse = { ...this.orgianlcourse };
+    if (this.orginalcourse != null) {
+      this.newCourse = { ...this.orginalcourse };
     }
   }
 }
