@@ -45,7 +45,7 @@ export class AppComponent {
         this.courseList.splice(updateCourseIndex, 1);
       }
 
-      console.log("Orginal Course:" + JSON.stringify(this.orginalcourse));
+      console.log("Orginal Course:" + JSON.stringify(this.orginalCourse));
       this.updateCourseList(form);
     }
 
@@ -63,18 +63,18 @@ export class AppComponent {
     this.courseList = newcourseList;
   }
 
-  orginalcourse: Course;
+  orginalCourse: Course;
   public getSelectedData(event) {
     this.newCourse = event;
 
-    this.orginalcourse = { ...this.newCourse };
+    this.orginalCourse = { ...this.newCourse };
     //this.newCourse.ColorList = ["Yellow", "Yellow", "Yellow"];
     //this.newCourse.ColorList.push("Yellow");
   }
 
   public reverseBack() {
-    if (this.orginalcourse != null) {
-      this.newCourse = { ...this.orginalcourse };
+    if (this.orginalCourse != null) {
+      this.newCourse = { ...this.orginalCourse };
     }
   }
 }
